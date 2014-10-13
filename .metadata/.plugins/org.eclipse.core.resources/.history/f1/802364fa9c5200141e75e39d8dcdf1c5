@@ -1,0 +1,17 @@
+package agh.sr.ws.calc;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
+
+public class Client {
+
+	public static void main(String[] args) throws MalformedURLException {
+		Service srv = Service.create(new URL("http://localhost:8888/SimplestHelloService"),
+				new QName("http://simplest.ws.sr.agh/", "SimplestHelloImplService"));
+		Calculator client = srv.getPort(Calculator.class);
+		System.out.println(client.AddOperation(10, 10, 10);
+	}
+}

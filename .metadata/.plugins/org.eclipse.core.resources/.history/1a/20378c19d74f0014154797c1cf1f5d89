@@ -1,0 +1,17 @@
+package agh.sr.ws.calc;
+
+public class CalculatorImpl implements Calculator {
+
+	@Override
+	public int AddOperation(int a, int b, int c) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double DivideOperation(double dividend, double divisor) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

@@ -1,0 +1,5 @@
+package agh.rs.ws.calc;
+
+public class Calculator {
+
+}

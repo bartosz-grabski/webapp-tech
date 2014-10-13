@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://calc.ws.sr.agh/" xmlns:tns="http://calc.ws.sr.agh/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="AddOperation" type="tns:AddOperation"/>
+
+  <xs:element name="AddOperationResponse" type="tns:AddOperationResponse"/>
+
+  <xs:element name="DivideOperation" type="tns:DivideOperation"/>
+
+  <xs:element name="DivideOperationResponse" type="tns:DivideOperationResponse"/>
+
+  <xs:complexType name="DivideOperation">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:double"/>
+      <xs:element name="arg1" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DivideOperationResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AddOperation">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+      <xs:element name="arg1" type="xs:int"/>
+      <xs:element name="arg2" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AddOperationResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

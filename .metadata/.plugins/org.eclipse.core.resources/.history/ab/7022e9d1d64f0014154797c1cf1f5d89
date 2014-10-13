@@ -1,0 +1,6 @@
+package agh.rs.ws.calc;
+
+public interface Calculator {
+	int AddOperation(int a, int b, int c);
+	double DivideOperation(double dividend, double divisor);
+}

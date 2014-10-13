@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;agh.rs.ws.calc&apos; to &apos;agh.sr.ws.calc&apos;&#x0A;- Original project: &apos;Ex5&apos;&#x0A;- Original element: &apos;Ex5/src/agh.rs.ws.calc&apos;&#x0A;- Renamed element: &apos;Ex5/src/agh.sr.ws.calc&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;agh.rs.ws.calc&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;agh.rs.ws.calc" name="agh.sr.ws.calc" qualified="false" references="true" stamp="1412874565020" textual="false" version="1.0"/>
+</session>

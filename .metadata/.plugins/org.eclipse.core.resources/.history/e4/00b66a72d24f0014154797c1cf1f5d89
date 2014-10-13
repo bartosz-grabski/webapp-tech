@@ -1,0 +1,17 @@
+package agh.sr.ws.simplest;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
+
+public class Client {
+
+	public static void main(String[] args) throws MalformedURLException {
+		Service srv = Service.create(new URL("http://localhost:8081/SimplestHelloService"),
+				new QName("http://simplest.ws.sr.agh/", "SimplestHelloImplService"));
+		SimplestHello client = srv.getPort(SimplestHello.class);
+		System.out.println(client.sayHello("Bartek", 22, 100000));
+	}
+}
