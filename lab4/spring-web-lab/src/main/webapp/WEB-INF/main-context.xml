@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/aop 
+          http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+    <jdbc:embedded-database id="dataSource" type="HSQL">
+        <jdbc:script location="classpath:schema.sql"/>
+        <jdbc:script location="classpath:production-data.sql"/>
+    </jdbc:embedded-database>
+
+    <bean id="repo" class="wiring.domain.repository.TransactionRepository">
+        <constructor-arg ref="dataSource"/>
+    </bean>
+    
+    <bean id="counter" class="org.tai.web.servlet.PerSessionRequestCounter" scope="session">
+		<aop:scoped-proxy/>
+	</bean>
+
+    <bean id="summaryService" class="wiring.domain.service.SummaryService"/>
+
+    <bean id="txService" class="wiring.application.TransactionService">
+        <constructor-arg ref="repo"/>
+        <constructor-arg ref="summaryService"/>
+    </bean>
+   
+    <bean id="profilingFilter"
+        class="org.tai.web.servlet.ProfilingFilter">
+        <property name="counter" ref="counter"></property>
+    </bean>
+
+</beans>

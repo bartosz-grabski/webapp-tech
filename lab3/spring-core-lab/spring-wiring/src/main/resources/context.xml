@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+	<context:component-scan base-package="org.tai.spring.wiring"></context:component-scan>
+	<context:property-placeholder location="file:conf/report.properties" />
+	
+	<beans profile="default">
+		<jdbc:embedded-database id="dataSource" type="HSQL">
+			<jdbc:script location="classpath:schema.sql" />
+			<jdbc:script location="classpath:production-data.sql" />
+		</jdbc:embedded-database>
+	</beans>
+
+	<beans profile="test">
+		<jdbc:embedded-database id="dataSource"
+			type="HSQL">
+			<jdbc:script location="classpath:schema.sql" />
+			<jdbc:script location="classpath:test-data.sql" />
+		</jdbc:embedded-database>
+	</beans>
+
+</beans>
